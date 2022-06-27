@@ -17,7 +17,11 @@
                 @else
                     <th>{{ $manga->name }}</th>
                 @endif
-                <td><a target="_blank" href="{{ $manga->link }}">{{ explode("/",$manga->link)[2] }}...</a></td>
+                @if(explode("/",$manga->link)[2] == "")
+                    <td><a target="_blank" href="{{ $manga->link }}">LOCAL FILE</a></td>
+                @else
+                    <td><a target="_blank" href="{{ $manga->link }}">{{ explode("/",$manga->link)[2] }}</a></td>
+                @endif
                 <th>
                     @if($manga->state == "R")
                         <span style="color:#47ea43;text-shadow:0px 0px 5px ">R</span>

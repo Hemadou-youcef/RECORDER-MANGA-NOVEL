@@ -19,7 +19,11 @@
                 @else
                     <th>{{ $novel->name }}</th>
                 @endif
-                <td><a target="_blank" href="{{ $novel->link }}">{{ explode("/",$novel->link)[2] }}</a></td>
+                @if(explode("/",$novel->link)[2] == "")
+                    <td><a target="_blank" href="{{ $novel->link }}">LOCAL FILE</a></td>
+                @else
+                    <td><a target="_blank" href="{{ $novel->link }}">{{ explode("/",$novel->link)[2] }}</a></td>
+                @endif
                 <th>
                     @if($novel->state == "R")
                         <span style="color:#47ea43;text-shadow:0px 0px 5px ">R</span>
