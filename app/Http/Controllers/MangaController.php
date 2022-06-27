@@ -24,7 +24,7 @@ class MangaController extends Controller
         $manga_list = DB::table('mangas')
             ->orderBy('state', 'DESC')
             ->orderBy('count', 'DESC')
-            ->paginate(10 * $page);
+            ->paginate(10);
         return view('manga.manga',compact('manga_list','numberOfPagination','page'));
     }
     public function getMangaById($id){

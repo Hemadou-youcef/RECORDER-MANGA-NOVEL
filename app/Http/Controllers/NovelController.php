@@ -24,7 +24,7 @@ class NovelController extends Controller
         $novel_list = DB::table('novels')
             ->orderBy('state', 'DESC')
             ->orderBy('count', 'DESC')
-            ->paginate(10 * $page);
+            ->paginate(10);
 
         return view('novel.novel',compact('novel_list','numberOfPagination','page'));
     }
