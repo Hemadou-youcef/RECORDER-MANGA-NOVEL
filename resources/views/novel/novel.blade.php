@@ -1,17 +1,16 @@
 @extends('layout.master')
 @section('title','RECORDER NOVELS')
 @section('content')
-
+    
     <table class="info">
-        <tr>
-            <th colspan="6"><a href="add-novel"><button>ADD NOVEL +</button></a></th>
-        </tr>
+        
         <tr>
             <th>NOVEL NAME</th>
             <th>NOVEL LINK</th>
             <th>STATE</th>
             <th>COUNT</th>
-            <th colspan="3">options</th>
+            <th colspan="2">options</th>
+            <th><a href="add-novel"><button>ADD NOVEL +</button></a></th>
         </tr>
         @foreach($novel_list as $key => $novel)
             <tr>
@@ -31,7 +30,7 @@
                     @endif
                 </th>
                 <td>{{ $novel->count }}</td>
-                <th><a href="/edit-novel/{{ $novel->id }}"><button style="background-color: #7dd727">EDIT</button></a></th>
+                <th colspan="2"><a href="/edit-novel/{{ $novel->id }}"><button style="background-color: #7dd727">EDIT</button></a></th>
                 <th><a href="/delete-novel/{{ $novel->id }}"><button style="background-color: red">DELETE</button></a></th>
             </tr>
         @endforeach

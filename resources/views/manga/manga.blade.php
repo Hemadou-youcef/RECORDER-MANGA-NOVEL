@@ -3,14 +3,12 @@
 @section('content')
     <table class="info">
         <tr>
-            <th colspan="6"><a href="add-manga"><button>ADD MANGA +</button></a></th>
-        </tr>
-        <tr>
             <th>MANGA NAME</th>
             <th>MANGA LINK</th>
             <th>STATE</th>
             <th>COUNT</th>
-            <th colspan="3">options</th>
+            <th colspan="2">options</th>
+            <th><a href="add-manga"><button>ADD MANGA +</button></a></th>
         </tr>
         @foreach($manga_list as $key => $manga)
             <tr>
@@ -30,7 +28,7 @@
                     @endif
                 </th>
                 <td>{{ $manga->count }}</td>
-                <th><a href="/edit-manga/{{ $manga->id }}"><button style="background-color: #7dd727">EDIT</button></a></th>
+                <th colspan="2"><a href="/edit-manga/{{ $manga->id }}"><button style="background-color: #7dd727">EDIT</button></a></th>
                 <th><a href="/delete-manga/{{ $manga->id }}"><button style="background-color: red">DELETE</button></a></th>
             </tr>
         @endforeach

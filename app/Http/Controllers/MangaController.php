@@ -16,9 +16,9 @@ class MangaController extends Controller
         }
         # GET NUMBER OF RECORDS
         $numberOfRecords = DB::table('mangas')->count();
-        $numberOfPagination = intval($numberOfRecords / 10);
-        if ($numberOfRecords % 10 != 0) {
-            $numberOfPagination = $numberOfPagination + 1;
+        $numberOfPagination = intval($numberOfRecords / 10) + 1;
+        if ($numberOfRecords % 10 == 0 && $numberOfRecords != 0) {
+            $numberOfPagination = $numberOfPagination - 1;
         }
         # GET RECORDS
         $manga_list = DB::table('mangas')

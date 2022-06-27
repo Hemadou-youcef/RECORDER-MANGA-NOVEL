@@ -16,7 +16,8 @@ use \App\Http\Controllers\MainController;
 |
 */
 
-Route::get('/',[MainController::class,'getAllRecords'])->name('home.defaultAction');
+// Route::get('/',[MainController::class,'getAllRecords'])->name('home.defaultAction');
+#redirect to default action of controller
 
 Route::get('/manga',[MangaController::class,'getAllMangaRecord'])->name('manga.defaultAction');
 Route::get('/novels',[NovelController::class,'getAllNovelsRecord'])->name('novel.defaultAction');
@@ -33,5 +34,7 @@ Route::get('/delete-novel/{id}',[NovelController::class,'removeNovelById'])->nam
 Route::get('/edit-novel/{id}',[NovelController::class,'getNovelById'])->name('novel.showNovel');
 Route::post('/edit-novel/{id}',[NovelController::class,'editNovelById'])->name('novel.editNovel');
 
-
+Route::get('/',function(){
+    return redirect()->route('novel.defaultAction');
+});
 
